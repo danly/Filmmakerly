@@ -1,0 +1,26 @@
+{
+  "name": "filmmakerly",
+  "version": "1.0.0",
+  "description": "An app for helping filmmakers master their craft through monthly competitions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stepheneyer/Filmmakerly.git"
+  },
+  "keywords": [
+    "filmmaking"
+  ],
+  "author": "Stephen Eyer (stephen@stepheneyer.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stepheneyer/Filmmakerly/issues"
+  },
+  "homepage": "https://github.com/stepheneyer/Filmmakerly#readme",
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "express": "^4.12.4"
+  }
+}
