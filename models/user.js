@@ -55,18 +55,39 @@ userSchema.statics.createSecure = function (params, cb) {
 	isConfirmed = confirm(params.password, params.password_confirmation);
 
 	if (!isConfirmed) {
+		// update message bar with error on frontend
 		return cb("Passwords should match", null);
 	}
 
 	var that = this;
 
-	bcrypt.hash(params.password, 12, function (err, hash){
+	bcrypt.hash(params.password, 12, function (err, hash) {
 		params.passwordDigest = hash;
 		that.create(params, cb);
 	});
 };
 
-// need to also do frontend validations
+userSchema.statics.authenticate = function (params, cb) {
+	this.findOne({
+		email: params.email
+	},
+	function (err, user) {
+		console.log(params.password);
+		user.checkPswrd(params.password, cb);
+	});
+};
+
+userSchema.methods.checkPswrd = function(password, cb) {
+	var user = this;
+	bcrypt.compare(password,
+		this.passwordDigest, function (err, isMatch) {
+			if (isMatch) {
+				cb(null, user);
+			} else {
+				cb("Oops", null);
+			}
+		});
+};
 
 var User = mongoose.model("User", userSchema);
 
