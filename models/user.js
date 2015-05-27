@@ -37,10 +37,10 @@ var userSchema = new mongoose.Schema({
 					gravatar: {
 						type: String,
 					},
-					link: {
+					currentChallenge: {
 						type: String,
 					},
-					currentChallenge: {
+					submitLink: {
 						type: String
 					}
 });

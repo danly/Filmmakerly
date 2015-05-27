@@ -1,9 +1,61 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Filmmakerly</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Filmmakerly</title>
+    <!-- jQuery -->
+    <script type="text/javascript" src="/jquery/dist/jquery.js"></script>
+    <!-- Underscore -->
+    <script type="text/javascript" src="/node_modules/underscore/underscore.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <!-- App.js -->
+    <script src="/js/app.js"></script>
 </head>
+
 <body>
-	<h2>Welcome</h2>
+    <a href="/" title="Return to the homepage" id="logo">
+        <img src="images/filmmakerly_logo_200.png" alt="Filmmakerly logo" /></a>
+    <div class="container">
+            <button id="login-button">Login</button>
+        <div="header-text">
+            <h2>Master Your Craft</h2>
+            <h3>Improve Your Skills With Monthly Filmmaking Challenges For Beginners and Pros</h3>
+    </div>
+    <div class="registration-panel">
+        <div class="reg-wrapper">
+            <h4 class="note">Sign up with your email address:</h4>
+            <form method="POST" action="/users">
+                <fieldset class="user-inputs">
+                    <div>
+                        <input type="text" name="user[firstName]" placeholder="First Name">
+                    </div>
+                    <div>
+                        <input type="text" name="user[lastName]" placeholder="Last Name">
+                    </div>
+                    <div>
+                        <input type="text" name="user[email]" placeholder="Email">
+                    </div>
+                    <div>
+                        <input type="password" name="user[password]" placeholder="Password">
+                    </div>
+                    <div>
+                        <input type="password" name="user[password_confirmation]" placeholder="Confirm Password">
+                    </div>
+                    <button id="signup-button">Sign up</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    </div>
 </body>
+
 </html>

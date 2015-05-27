@@ -7,7 +7,10 @@ var db = require("./models");
 var app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
-// app.use(express.static(__dirname, "public")); //maybe /public
+app.use(express.static("public"));
+app.use(express.static("bower_components"));
+app.use(express.static("node_modules"));
+
 app.use(session({
 	secret: "SUPER STUFF",
 	resave: false,
@@ -39,6 +42,10 @@ var loginHelpers = function (req, res, next){
 
 app.use(loginHelpers);
 
+// app.use("/api", function (req, res, next) {
+// 	req.currentUser(function )
+// })
+
 var views = path.join(__dirname, "views");
 
 app.get("/", function (req, res) {
@@ -57,9 +64,10 @@ app.get("/login", function (req, res) {
 });
 
 app.get("/profile", function (req, res) {
+	var profilePath = path.join(views, "profile.html");
   	req.currentUser(function (err, user) {
   		if (!err) {
-  			res.send(user.email);	
+  			res.sendFile(profilePath);
   		} else {
   			res.redirect("/login");
   		}
@@ -98,6 +106,29 @@ app.post("/login", function (req, res) {
 	}); 
 });
 
+app.get("/api/user", function (req, res) {
+	if (!req.session.userId) {
+		res.redirect("/login");
+	}
+	db.User.
+		findOne({
+			"_id": req.session.userId
+		}).
+		select("-passwordDigest").
+		exec(function (err, user) {
+			res.send(user);
+		});
+});
+
+app.put("/api/user", function (req, res) {
+	var updateProfile = req.body.user;
+	db.User.update({
+		_id: req.session.userId
+	}, updateProfile, function (err, user) {
+		console.log(user);
+		res.send(user);
+	});
+});
 
 app.listen(3000, function () {
 	console.log("Running!");
