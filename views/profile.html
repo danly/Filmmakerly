@@ -17,28 +17,28 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="/css/app.css">
     <!-- App.js -->
-    <script src="/js/app.js"></script>
+    <script src="/js/profile.js"></script>
 </head>
 <body>
 	<div class="container" style="padding-top: 60px;">
-  <h1 class="page-header">Edit Profile</h1>
+  <h1 class="page-header" id="pageHeader">Profile</h1>
   <div class="row">
     <!-- left column -->
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="text-center">
-        <img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar">
-        <h6>Upload a different photo...</h6>
-        <input type="file" class="text-center center-block well well-sm">
+        <img id="gravatarImg" src="" class="avatar img-circle img-thumbnail" alt="avatar">
+        <a href="http://www.gravatar.com" target="_blank"><h6>Edit your photo.</h6></a>
+        <!-- <input type="file" class="text-center center-block well well-sm"> -->
       </div>
     </div>
     <!-- edit form column -->
     <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-      <div class="alert alert-info alert-dismissable">
+      <div class="alert alert-info alert-dismissable" id="alert">
         <a class="panel-close close" data-dismiss="alert">×</a> 
         <i class="fa fa-coffee"></i>
-        This is an <strong>.alert</strong>. Use this to show important messages to the user.
+        <span>Update your profile and select <strong>Save Changes</strong> below.</span>
       </div>
-      <h3>Personal info</h3>
+      <!-- <h3>Personal info</h3> -->
       <form id="profileInfo" class="form-horizontal" role="form">
         <div class="form-group">
           <label class="col-lg-3 control-label">First name:</label>

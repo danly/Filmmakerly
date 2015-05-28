@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Filmmakerly - Challenges</title>
+    <!-- jQuery -->
+    <script type="text/javascript" src="/jquery/dist/jquery.js"></script>
+    <!-- Underscore -->
+    <script type="text/javascript" src="/underscore/underscore.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+    <script src="/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/challenges.css">
+    <!-- App.js -->
+    <script src="/js/challenges.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Challenges</h2>
+        <div id="challenges-wrapper">
+        </div>
+    </div>
+</body>
+<!-- Underscore template -->
+<script type="text/template" id="challenges-template">
+    <% _.each(collection, function(item){ %>
+    <div class="row">
+            <div class=".col-xs-6 .col-md-4">
+                <div class="caption"></div>
+                <img class="img-responsive" alt="alternative text" id="imgURL" src="<%= item.imgURL %>">
+                <p>
+                    <span class="title" id="title"><h3><%= item.title %></h3></span>
+                    <span class="description" id="description"><%= item.description %></span>
+                </p>
+                <span class="label label-info deadline" id="deadline"><%= item.dueDate %></span>
+                <span class="label label-primary" id="category">
+                <%= item.category %></span>
+                <span class="label label-danger" id="skillLevel">
+                <%= item.skillLevel %></span>
+                <br>
+                <br>
+                <p><a href="#" class="btn btn-default" data-id="<%= item._id %>" onclick="" role="button">I accept this challenge!</a></p><br>
+            </div>
+        </div>
+    </div>
+    <% }); %>
+</script>
+
+<!-- <script type="text/template" id="challenges-template">
+    <% _.each(collection, function(item){ %>
+        <li class='list-group-item'>
+            <h4><span class="label label-default"><%= item.word %></span></h4>
+            <%=i tem.definition %>
+                <button data-id="<%= item._id %>" onclick="Phrase.delete(this)" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </li>
+        <% }); %>
+</script> -->
+
+</html>

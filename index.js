@@ -53,10 +53,10 @@ app.get("/", function (req, res) {
 	res.sendFile(homePath);
 });
 
-app.get("/signup", function (req, res) {
-	var signupPath = path.join(views, "signup.html");
-	res.sendFile(signupPath);
-});
+// app.get("/signup", function (req, res) {
+// 	var signupPath = path.join(views, "signup.html");
+// 	res.sendFile(signupPath);
+// });
 
 app.get("/login", function (req, res) {
 	var loginPath = path.join(views, "login.html");
@@ -109,7 +109,7 @@ app.post("/login", function (req, res) {
 app.get("/api/user", function (req, res) {
 	if (!req.session.userId) {
 		res.redirect("/login");
-	}
+	} else {
 	db.User.
 		findOne({
 			"_id": req.session.userId
@@ -118,6 +118,7 @@ app.get("/api/user", function (req, res) {
 		exec(function (err, user) {
 			res.send(user);
 		});
+	}
 });
 
 app.put("/api/user", function (req, res) {
@@ -125,9 +126,30 @@ app.put("/api/user", function (req, res) {
 	db.User.update({
 		_id: req.session.userId
 	}, updateProfile, function (err, user) {
-		console.log(user);
+		// console.log(user);
 		res.send(user);
 	});
+});
+
+app.get("/challenges", function (req, res) {
+	if (!req.session.userId) {
+		res.redirect("/login");
+	} else {
+	var challengePath = path.join(views, "challenges.html");
+	res.sendFile(challengePath);
+	}
+});
+
+app.get("/api/challenges", function (req, res) {
+	if (!req.session.userId) {
+		res.redirect("/login");
+	} else {
+		db.Challenge.
+		find({}, function (err, challenge) {
+			console.log(challenge);
+			res.send(challenge);
+		});
+	}
 });
 
 app.listen(3000, function () {

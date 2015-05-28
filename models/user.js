@@ -1,5 +1,6 @@
 var mongoose = require("mongoose");
 var bcrypt = require("bcrypt");
+var md5 = require("MD5");
 
 var userSchema = new mongoose.Schema({
 					email: {
@@ -23,22 +24,26 @@ var userSchema = new mongoose.Schema({
 						default: ""
 					},
 					city: {
-						type: String,
+						type: String
 					},
 					state: {
-						type: String,
+						type: String
 					},
 					country: {
-						type: String,
+						type: String
 					},
 					bio: {
-						type: String,
+						type: String
+					},
+					hashedEmail: {
+						type: String
 					},
 					gravatar: {
-						type: String,
+						type: String
 					},
 					currentChallenge: {
-						type: String,
+						type: mongoose.Schema.Types.ObjectId,
+						ref: 'Challenge'
 					},
 					submitLink: {
 						type: String
@@ -62,6 +67,7 @@ userSchema.statics.createSecure = function (params, cb) {
 	var that = this;
 
 	bcrypt.hash(params.password, 12, function (err, hash) {
+		params.hashedEmail = that.hashEmail(params);
 		params.passwordDigest = hash;
 		that.create(params, cb);
 	});
@@ -72,7 +78,6 @@ userSchema.statics.authenticate = function (params, cb) {
 		email: params.email
 	},
 	function (err, user) {
-		console.log(params.password);
 		user.checkPswrd(params.password, cb);
 	});
 };
@@ -88,6 +93,14 @@ userSchema.methods.checkPswrd = function(password, cb) {
 			}
 		});
 };
+
+userSchema.statics.hashEmail = function (params) {
+	var emailTrimmedAndLowerCase = params.email.trim().toLowerCase();
+	var emailHashed = md5(emailTrimmedAndLowerCase);
+	console.log(emailHashed);
+	return emailHashed;
+};
+
 
 var User = mongoose.model("User", userSchema);
 
