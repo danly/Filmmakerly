@@ -126,7 +126,20 @@ app.put("/api/user", function (req, res) {
 	db.User.update({
 		_id: req.session.userId
 	}, updateProfile, function (err, user) {
-		// console.log(user);
+		console.log(err);
+		console.log(user);
+		res.send(user);
+	});
+});
+
+app.put("/api/user/:currentChallenge", function (req, res) {
+	var challengeId = req.params.currentChallenge;
+	console.log(challengeId);
+	db.User.update({
+		currentChallenge: challengeId
+	}, function (err, user) {
+		console.log(err);
+		console.log(user);
 		res.send(user);
 	});
 });
@@ -146,7 +159,6 @@ app.get("/api/challenges", function (req, res) {
 	} else {
 		db.Challenge.
 		find({}, function (err, challenge) {
-			console.log(challenge);
 			res.send(challenge);
 		});
 	}

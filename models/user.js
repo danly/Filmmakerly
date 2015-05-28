@@ -42,7 +42,7 @@ var userSchema = new mongoose.Schema({
 						type: String
 					},
 					currentChallenge: {
-						type: mongoose.Schema.Types.ObjectId,
+						type: String,
 						ref: 'Challenge'
 					},
 					submitLink: {

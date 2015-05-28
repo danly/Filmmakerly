@@ -22,21 +22,17 @@ Challenge.all = function() {
 	});
 };
 
-Challenge.addTitleToUser = function(challenge) {
-	// if user's currentChallenge is null
+Challenge.addChallengeId = function(challenge) {
     // when user clicks on "I Accept This Challenge" button
-    // get title of challenge
-    // and update user's currentChallenge with new challenge title
-    console.log("Clicked!");
- //    var challengeTitle = $(challenge).data().id;
- //    console.log(challengeTitle);
- //    $.ajax({
- //        url: "api/user/" + currentChallenge,
- //        method: "PUT",
- //        data: $this.serialize(),
- //        success: function(res) {
- //            // once successful, add challenge title to user profile
- //            // something goes here
- //     }
- // });
+    // get the challenge's id and save to user's currentChallenge
+    var challengeId = $(challenge).data().id;
+    console.log(challengeId);
+    $.ajax({
+        url: "api/user/" + challengeId,
+        method: "PUT",
+        success: function(res) {
+            // once successful, add challenge title to user profile
+            console.log("You chose a challenge.");
+     	}
+ 	});
 };

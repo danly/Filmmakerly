@@ -20,6 +20,7 @@ $(function() {
 	$("#profileInfo").on("submit", function (err) {
 		event.preventDefault();
 		var $this = $(this);
+		console.log($this);
 		$.ajax({
 			method: "PUT", 
 			url:"/api/user", 

@@ -6,3 +6,7 @@ h2 {
     font-size: 18px;
     margin: 5px 0px 20px 0px;
 }
+
+#logout-button {
+	margin-right: 50px;
+}
