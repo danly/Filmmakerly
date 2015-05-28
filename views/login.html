@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-	<title>Filmmakerly - Login</title>
-	    <!-- jQuery -->
+    <title>Filmmakerly - Login</title>
+    <!-- jQuery -->
     <script type="text/javascript" src="/jquery/dist/jquery.js"></script>
-        <!-- Underscore -->
+    <!-- Underscore -->
     <script type="text/javascript" src="/underscore/underscore.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
     <script src="/bootstrap/dist/js/bootstrap.js"></script>
-        <!-- CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="/css/app.css">
-        <!-- App.js -->
+    <!-- App.js -->
     <script src="/js/app.js"></script>
 </head>
-<body>
-	<form method="POST" action="/login">
-		<div>
-			<input type="text" name="user[email]" placeholder="Your Email">
-		</div>
-		<div>
-			<input type="password" name="user[password]" placeholder="Password">
-		</div>
-		<button>Login</button>
-	</form>
+
+<body id="login-body">
+    <a href="/" title="Return to the homepage" id="logo">
+        <img src="images/filmmakerly_logo_200.png" alt="Filmmakerly logo" /></a>
+        <button id="nav-signup-button" onclick="location.href='/'">Signup</button>
+    <div class="login-panel">
+        <div class="login-wrapper">
+        <h3 class="login-note">Login with your email address:</h3>
+            <form method="POST" action="/login">
+                <div>
+                    <input type="text" name="user[email]" placeholder="Your Email">
+                </div>
+                <div>
+                    <input type="password" name="user[password]" placeholder="Password">
+                </div>
+                <button id="login-button">Login</button>
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>

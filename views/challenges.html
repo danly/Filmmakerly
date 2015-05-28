@@ -36,7 +36,7 @@
                 <div class="caption"></div>
                 <img class="img-responsive" alt="alternative text" id="imgURL" src="<%= item.imgURL %>">
                 <p>
-                    <span class="title" id="title"><h3><%= item.title %></h3></span>
+                    <span class="title" id="<%= item.title %>"><h3><%= item.title %></h3></span>
                     <span class="description" id="description"><%= item.description %></span>
                 </p>
                 <span class="label label-info deadline" id="deadline"><%= item.dueDate %></span>
@@ -46,7 +46,7 @@
                 <%= item.skillLevel %></span>
                 <br>
                 <br>
-                <p><a href="#" class="btn btn-default" data-id="<%= item._id %>" onclick="" role="button">I accept this challenge!</a></p><br>
+                <p><a href="#" class="btn btn-default" data-id="<%= item._id %>" onclick="Challenge.addTitleToUser()" role="button">I accept this challenge!</a></p><br>
             </div>
         </div>
     </div>

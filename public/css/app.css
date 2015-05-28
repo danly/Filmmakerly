@@ -1,4 +1,4 @@
-html {
+#signup-body {
     background: url('../images/filmmakerly_bkgrnd_1920.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -6,7 +6,15 @@ html {
     -o-background-size: cover;
 }
 
-#login-button {
+#login-body {
+    background: url('../images/filmmakerly_login_bkgrnd_1920.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+#nav-login-button {
   position: absolute;
   background-color: transparent;
   height: 30px;
@@ -22,7 +30,23 @@ html {
   border-radius: 3px;
 }
 
-h2 {
+#nav-signup-button {
+  position: absolute;
+  background-color: transparent;
+  height: 30px;
+  width: 80px;
+  right: 50px;
+  top: 40px;
+  color: #19334C;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-width: 1px;
+  border-radius: 3px;
+}
+
+h1 {
     position: absolute;
     text-align: center;
     font-size: 40px;
@@ -35,7 +59,7 @@ h2 {
     -webkit-font-smoothing: antialiased;
 }
 
-h3 {
+h2 {
 	position: absolute;
 	text-align: center;
 	font-size: 20px;
@@ -82,10 +106,38 @@ h3 {
   margin: 0 auto;
 }
 
-.note {
+.login-panel {
+  position: absolute;
+  width: 350px;
+  margin: 40px auto 0 auto;
+  top: 260px;
+  left: 340px;
+  padding: 15px 10px 10px 10px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.6);
+  color: #333;
+  overflow: hidden;
+  text-shadow: none;
+}
+
+.login-wrapper {
+  width: 250px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+
+.signup-note {
   font-size: 12px;
   line-height: 1.5em;
   color: #333;
+  margin: 15px auto 10px auto;
+}
+
+.login-note {
+  font-size: 12px;
+  line-height: 1.5em;
+  color: #fff;
   margin: 15px auto 10px auto;
 }
 
@@ -98,7 +150,6 @@ h3 {
   	width: 100%;
 }
 
-
 #signup-button {
   margin: 15px 0px 10px 0px;
   color: #fff;
@@ -107,3 +158,20 @@ h3 {
   background-color: #DBAC72;
   border-color: #DBAC72;
 }
+
+
+#login-button {
+  margin: 15px 0px 10px 0px;
+  color: #fff;
+  width: 250px;
+  height: 30px;
+  background-color: #DBAC72;
+  border-color: #DBAC72;
+}
+
+  @media (max-width: 500px){
+    h1 {
+          font-size: 36px;
+          padding: 10px;
+    }
+  }
