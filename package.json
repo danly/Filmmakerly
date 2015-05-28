@@ -4,7 +4,8 @@
   "description": "An app for helping filmmakers master their craft through monthly competitions",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && bower install && node index.js"
+    "start": "node index.js",
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
