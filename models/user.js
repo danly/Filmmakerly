@@ -39,10 +39,10 @@ var userSchema = new mongoose.Schema({
 						type: String
 					},
 					gravatar: {
-						type: String
+						type: String						
 					},
 					currentChallenge: {
-						type: String,
+						type: mongoose.Schema.Types.ObjectId,
 						ref: 'Challenge'
 					},
 					submitLink: {

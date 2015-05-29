@@ -126,20 +126,31 @@ app.put("/api/user", function (req, res) {
 	db.User.update({
 		_id: req.session.userId
 	}, updateProfile, function (err, user) {
-		console.log(err);
-		console.log(user);
+		console.log("The update error is:", err);
 		res.send(user);
 	});
 });
 
+app.get("/api/user/challengeTitle", function (req, res){
+	var userId = req.session.userId;
+	db.User.
+	findById(userId)
+	.populate("currentChallenge")
+	.exec(function (err, user) {
+		res.send(user.currentChallenge.title);
+	});
+});
+
+
 app.put("/api/user/:currentChallenge", function (req, res) {
+	var userId = req.session.userId;
 	var challengeId = req.params.currentChallenge;
-	console.log(challengeId);
-	db.User.update({
-		currentChallenge: challengeId
-	}, function (err, user) {
-		console.log(err);
-		console.log(user);
+	console.log("The user is:", req.session.userId);
+	console.log("The challengeId is:", challengeId);
+	db.User.findByIdAndUpdate(userId,
+		{currentChallenge: challengeId}, {new: true}, function (err, user) {
+		console.log("The error is:", err);
+		console.log("The user is:", user);
 		res.send(user);
 	});
 });

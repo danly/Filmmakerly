@@ -22,13 +22,14 @@ Challenge.all = function() {
 	});
 };
 
-Challenge.addChallengeId = function(challenge) {
+Challenge.getChallengeId = function(challenge) {
     // when user clicks on "I Accept This Challenge" button
     // get the challenge's id and save to user's currentChallenge
+    event.preventDefault();
     var challengeId = $(challenge).data().id;
     console.log(challengeId);
     $.ajax({
-        url: "api/user/" + challengeId,
+        url: "/api/user/" + challengeId,
         method: "PUT",
         success: function(res) {
             // once successful, add challenge title to user profile

@@ -30,7 +30,7 @@
     </div>
     <ul class="nav navbar-nav navbar-right">
         <li><a href="/profile">Profile</a></li>
- <button type="button" class="btn btn-default navbar-btn pull-right" id="logout-buton" onclick="location.href='/logout'">Log Out</button>
+ <button id="logout-button" type="button" class="btn btn-default navbar-btn pull-right"  onclick="location.href='/logout'">Log Out</button>
   </div>
 </nav>
   <!-- Nav Bar End -->
@@ -58,7 +58,7 @@
                 <%= item.skillLevel %></span>
                 <br>
                 <br>
-                <p><a href="#" class="btn btn-default" data-id="<%= item._id %>" onclick="Challenge.addChallengeId(this)" role="button">I accept this challenge!</a></p><br>
+                <p><a href="#" class="btn btn-default" data-id="<%= item._id %>" onclick="Challenge.getChallengeId(this)" role="button">I accept this challenge!</a></p><br>
             </div>
         </div>
     </div>

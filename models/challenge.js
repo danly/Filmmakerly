@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 var challengeSchema = new mongoose.Schema({
 					title: {
 						type: String,
-						required: true
+						default: ""
 					},
 					description: {
 						type: String

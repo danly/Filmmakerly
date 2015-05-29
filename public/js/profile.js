@@ -1,7 +1,6 @@
 $(function() {
 	$.get("/api/user").
 		done(function (user) {
-			console.log(user);
 			$("#firstName").val(user.firstName);
 			$("#lastName").val(user.lastName);
 			$("#city").val(user.city);
@@ -16,6 +15,11 @@ $(function() {
 			var firstName = user.firstName;
 			$("#pageHeader").html(firstName + "'s " + "Profile");
 		});
+
+	// $.get("/api/user/challengeTitle").
+	// done(function (title){
+	// 		$("#currentChallenge").val(title);
+	// });
 
 	$("#profileInfo").on("submit", function (err) {
 		event.preventDefault();
