@@ -1,26 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign up</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Filmmakerly</title>
+    <!-- jQuery -->
+    <script type="text/javascript" src="/jquery/dist/jquery.js"></script>
+    <!-- Underscore -->
+    <script type="text/javascript" src="/underscore/underscore.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
+    <script src="/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <!-- App.js -->
+    <script src="/js/app.js"></script>
 </head>
 <body>
-	<form method= "POST" action="/users">
-		<div>
-			<input type="text" name="user[firstName]" placeholder="First Name">
-		</div>
-		<div>
-			<input type="text" name="user[lastName]" placeholder="Last Name">
-		</div>
-		<div>
-			<input type="text" name="user[email]" placeholder="Email">
-		</div>
-		<div>
-			<input type="password" name="user[password]" placeholder="Password">
-		</div>
-		<div>
-			<input type="password" name="user[password_confirmation]" placeholder="Password Confirmation">
-		</div>
-		<button>Sign up</button>
-	</form>
+	<div class="container">
+		<form method= "POST" action="/users">
+			<div class ="form-group">
+				<input type="text" name="user[firstName]" placeholder="First Name">
+			</div>
+			<div>
+				<input type="text" name="user[lastName]" placeholder="Last Name">
+			</div>
+			<div>
+				<input type="email" class="form-control" id="emailField" name="user[email]" placeholder="Email">
+			</div>
+			<div>
+				<input type="password" name="user[password]" placeholder="Password">
+			</div>
+			<div>
+				<input type="password" name="user[password_confirmation]" placeholder="	Password Confirmation">
+			</div>
+			<button>Sign up</button>
+		</form>
+	</div>
 </body>
 </html>

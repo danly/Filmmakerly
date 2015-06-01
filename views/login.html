@@ -22,21 +22,28 @@
 </head>
 
 <body id="login-body">
-    <a href="/" title="Return to the homepage" id="logo">
-        <img src="images/filmmakerly_logo_200.png" alt="Filmmakerly logo" /></a>
+    <div class="container">
+        <a href="/" title="Return to the homepage" id="logo">
+            <img src="images/filmmakerly_logo_200.png" alt="Filmmakerly logo" /></a>
         <button id="nav-signup-button" onclick="location.href='/'">Signup</button>
-    <div class="login-panel">
-        <div class="login-wrapper">
-        <h3 class="login-note">Login with your email address:</h3>
-            <form method="POST" action="/login">
-                <div>
-                    <input type="text" name="user[email]" placeholder="Your Email">
-                </div>
-                <div>
-                    <input type="password" name="user[password]" placeholder="Password">
-                </div>
-                <button id="login-button">Login</button>
-            </form>
+        <div class="login-panel">
+            <div class="login-wrapper">
+                <h3 class="login-note">Login with your email address:</h3>
+                <form method="POST" action="/login">
+                    <div>
+                        <input type="email" class="form-control" name="user[email]" placeholder="Your Email" required>
+                    </div>
+                    <div>
+                        <input type="password" class="form-control" name="user[password]" placeholder="Password" required>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" /> Remember Me
+                        </label>
+                    </div>
+                    <button id="login-button">Login</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>

@@ -122,20 +122,20 @@ h2 {
 
 .login-wrapper {
   width: 250px;
-  height: 150px;
+  height: 200px;
   margin: 0 auto;
 }
 
 
 .signup-note {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5em;
   color: #333;
   margin: 15px auto 10px auto;
 }
 
 .login-note {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5em;
   color: #fff;
   margin: 15px auto 10px auto;
@@ -159,6 +159,9 @@ h2 {
   border-color: #DBAC72;
 }
 
+.checkbox {
+  color: #fff;
+}
 
 #login-button {
   margin: 15px 0px 10px 0px;
@@ -168,6 +171,7 @@ h2 {
   background-color: #DBAC72;
   border-color: #DBAC72;
 }
+
 
   @media (max-width: 500px){
     h1 {

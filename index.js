@@ -94,7 +94,7 @@ app.post("/users", function (req, res) {
 			req.login(user);
 			res.redirect("/profile");
 		} else {
-			res.redirect("/signup");
+			res.redirect("/");
 		}
 	});
 });

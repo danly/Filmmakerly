@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,39 +22,43 @@
 </head>
 
 <body id="signup-body">
-    <a href="/" title="Return to the homepage" id="logo">
-        <img src="images/filmmakerly_logo_200.png" alt="Filmmakerly logo" /></a>
     <div class="container">
+        <a href="/" title="Return to the homepage" id="logo">
+            <img src="images/filmmakerly_logo_200.png" alt="Filmmakerly logo" /></a>
+        <div class="container">
             <button id="nav-login-button" onclick="location.href='/login'">Login</button>
-        <div class="header-text">
-            <h1>Master Your Craft</h1>
-            <h2>Improve Your Skills With Monthly Filmmaking Challenges For Beginners and Pros</h2>
-    </div>
-    <div class="registration-panel">
-        <div class="reg-wrapper">
-            <h4 class="signup-note">Sign up with your email address:</h4>
-            <form method="POST" action="/users">
-                <fieldset class="user-inputs">
-                    <div>
-                        <input type="text" name="user[firstName]" placeholder="First Name">
+            <div class="header-text">
+                <h1>Master Your Craft</h1>
+                <h2>Improve Your Skills With Monthly Filmmaking Challenges For Beginners and Pros</h2>
+            </div>
+            <div class="registration-panel">
+                <div class="form-group" data-toggle="validator">
+                    <div class="reg-wrapper">
+                        <h4 class="signup-note">Sign up with your email address:</h4>
+                        <form method="POST" action="/users">
+                            <fieldset class="user-inputs">
+                                <div>
+                                    <input type="text" class="form-control" name="user[firstName]" placeholder="First Name">
+                                </div>
+                                <div>
+                                    <input type="text" class="form-control" name="user[lastName]" placeholder="Last Name">
+                                </div>
+                                <div>
+                                    <input type="email" class="form-control" id="emailField" name="user[email]" placeholder="Email" required>
+                                </div>
+                                <div>
+                                    <input type="password" class="form-control" name="user[password]" placeholder="Password" required>
+                                </div>
+                                <div>
+                                    <input type="password" class="form-control" name="user[password_confirmation]" placeholder="Confirm Password" required>
+                                </div>
+                                <button id="signup-button">Sign up</button>
+                            </fieldset>
+                        </form>
                     </div>
-                    <div>
-                        <input type="text" name="user[lastName]" placeholder="Last Name">
-                    </div>
-                    <div>
-                        <input type="text" name="user[email]" placeholder="Email">
-                    </div>
-                    <div>
-                        <input type="password" name="user[password]" placeholder="Password">
-                    </div>
-                    <div>
-                        <input type="password" name="user[password_confirmation]" placeholder="Confirm Password">
-                    </div>
-                    <button id="signup-button">Sign up</button>
-                </fieldset>
-            </form>
+                </div>
+            </div>
         </div>
-    </div>
     </div>
 </body>
 
