@@ -1,4 +1,7 @@
 $(function() {
+
+// update profile page on load
+
 	$.get("/api/user").
 		done(function (user) {
 			$("#firstName").val(user.firstName);
@@ -18,10 +21,12 @@ $(function() {
 
 // this is causing the app to crash when a new user is created
 
-	// $.get("/api/user/challengeTitle").
-	// done(function (title){
-	// 		$("#currentChallenge").val(title);
-	// });
+	$.get("/api/user/challengeTitle").
+	done(function (title){
+			$("#currentChallenge").val(title);
+	});
+
+// update profile page on submit
 
 	$("#profileInfo").on("submit", function (err) {
 		event.preventDefault();

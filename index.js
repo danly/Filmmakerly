@@ -152,7 +152,11 @@ app.get("/api/user/challengeTitle", function (req, res){
 	findById(userId)
 	.populate("currentChallenge")
 	.exec(function (err, user) {
+		if (user.currentChallenge) {
 		res.send(user.currentChallenge.title);
+		} else {
+			res.status(204).end();
+		}
 	});
 });
 
