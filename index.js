@@ -63,14 +63,18 @@ app.get("/login", function (req, res) {
 // send user to profile page if logged in
 
 app.get("/profile", function (req, res) {
-	var profilePath = path.join(views, "profile.html");
-  	req.currentUser(function (err, user) {
-  		if (!err) {
-  			res.sendFile(profilePath);
-  		} else {
-  			res.redirect("/login");
-  		}
-  	});
+	if (!req.session.userId) {
+		res.redirect("/login");
+	} else {
+		var profilePath = path.join(views, "profile.html");
+  		req.currentUser(function (err, user) {
+  			if (!err) {
+  				res.sendFile(profilePath);
+  			} else {
+  				res.redirect("/login");
+  			}
+  		});
+	}	
 });
 
 // logout user
