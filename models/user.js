@@ -94,6 +94,8 @@ userSchema.methods.checkPswrd = function(password, cb) {
 		});
 };
 
+// trim and hash email for Gravatar photo
+
 userSchema.statics.hashEmail = function (params) {
 	var emailTrimmedAndLowerCase = params.email.trim().toLowerCase();
 	var emailHashed = md5(emailTrimmedAndLowerCase);

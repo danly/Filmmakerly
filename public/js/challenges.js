@@ -11,6 +11,8 @@ $(function() {
 
 function Challenge() {}
 
+// render all challenges into template
+
 Challenge.all = function() {
 	$.get("/api/challenges").
 		done(function (challenges) {
@@ -22,9 +24,11 @@ Challenge.all = function() {
 	});
 };
 
+
+// when user clicks on "I Accept This Challenge" button
+// get the challenge's id and save to user's currentChallenge
+
 Challenge.getChallengeId = function(challenge) {
-    // when user clicks on "I Accept This Challenge" button
-    // get the challenge's id and save to user's currentChallenge
     event.preventDefault();
     var challengeId = $(challenge).data().id;
     console.log(challengeId);

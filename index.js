@@ -53,15 +53,14 @@ app.get("/", function (req, res) {
 	res.sendFile(homePath);
 });
 
-// app.get("/signup", function (req, res) {
-// 	var signupPath = path.join(views, "signup.html");
-// 	res.sendFile(signupPath);
-// });
+// login user
 
 app.get("/login", function (req, res) {
 	var loginPath = path.join(views, "login.html");
 	res.sendFile(loginPath);
 });
+
+// send user to profile page if logged in
 
 app.get("/profile", function (req, res) {
 	var profilePath = path.join(views, "profile.html");
@@ -74,10 +73,14 @@ app.get("/profile", function (req, res) {
   	});
 });
 
+// logout user
+
 app.get("/logout", function (req, res){
 	req.logout();
 	res.redirect("/");
 });
+
+// create a new user at signup, redirect to profile page
 
 app.post("/users", function (req, res) {
 	var newUser = req.body.user;
@@ -92,6 +95,8 @@ app.post("/users", function (req, res) {
 	});
 });
 
+// authenticate the user at login
+
 app.post("/login", function (req, res) {
 	var user = req.body.user;
 	db.User.
@@ -105,6 +110,8 @@ app.post("/login", function (req, res) {
 		}
 	}); 
 });
+
+// get all user's profile data for profile page (minus their password)
 
 app.get("/api/user", function (req, res) {
 	if (!req.session.userId) {
@@ -121,6 +128,8 @@ app.get("/api/user", function (req, res) {
 	}
 });
 
+// update user profile when changes are saved
+
 app.put("/api/user", function (req, res) {
 	var updateProfile = req.body.user;
 	db.User.update({
@@ -130,6 +139,8 @@ app.put("/api/user", function (req, res) {
 		res.send(user);
 	});
 });
+
+// update challenge title on profile page when a challenge is selected on challenge page
 
 app.get("/api/user/challengeTitle", function (req, res){
 	var userId = req.session.userId;
@@ -141,6 +152,7 @@ app.get("/api/user/challengeTitle", function (req, res){
 	});
 });
 
+// update current challenge in database with selected challengeId
 
 app.put("/api/user/:currentChallenge", function (req, res) {
 	var userId = req.session.userId;
@@ -155,6 +167,8 @@ app.put("/api/user/:currentChallenge", function (req, res) {
 	});
 });
 
+// show challenges if user logged in
+
 app.get("/challenges", function (req, res) {
 	if (!req.session.userId) {
 		res.redirect("/login");
@@ -163,6 +177,8 @@ app.get("/challenges", function (req, res) {
 	res.sendFile(challengePath);
 	}
 });
+
+// get all challenges from database
 
 app.get("/api/challenges", function (req, res) {
 	if (!req.session.userId) {

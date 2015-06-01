@@ -16,6 +16,8 @@ $(function() {
 			$("#pageHeader").html(firstName + "'s " + "Profile");
 		});
 
+// this is causing the app to crash when a new user is created
+
 	// $.get("/api/user/challengeTitle").
 	// done(function (title){
 	// 		$("#currentChallenge").val(title);
