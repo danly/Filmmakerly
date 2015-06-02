@@ -15,22 +15,40 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
     <script src="/bootstrap/dist/js/bootstrap.js"></script>
+
+
+
+
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" type="text/css" href="/css/logo.css">
+
+
+
     <!-- App.js -->
     <script src="/js/app.js"></script>
 </head>
 
 <body id="signup-body">
-    <div class="container">
-        <a href="/" title="Return to the homepage" id="logo">
+
+    <div class='header'>
+        <div class='siteLogo'>
+            <a href="/" title="Return to the homepage" id="logo">
             <img src="images/filmmakerly_logo_200.png" alt="Filmmakerly logo" /></a>
-        <div class="container">
-            <button id="nav-login-button" onclick="location.href='/login'">Login</button>
-            <div class="header-text">
-                <h1>Master Your Craft</h1>
-                <h2>Improve Your Skills With Monthly Filmmaking Challenges For Beginners and Pros</h2>
-            </div>
+        </div>
+
+        <div class='login'>
+            <button class='loginButton' id="nav-login-button" onclick="location.href='/login'">Login</button>
+        </div>
+    </div>
+
+
+    <div class='signup-container'>
+        <div class="header-text">
+            <h1 class='headlineMaster'>Master Your Craft</h1>
+            <h2 class='phrase'>Improve Your Skills With Monthly Filmmaking Challenges For Beginners and Pros</h2>
+        </div>
+
             <div class="registration-panel">
                 <div class="form-group" data-toggle="validator">
                     <div class="reg-wrapper">
@@ -58,8 +76,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 </body>
 
 </html>
